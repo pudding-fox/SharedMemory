@@ -42,11 +42,25 @@ namespace SharedMemory
         }
 
         [DllImport(DllName, CharSet = CharSet.Unicode)]
-        static extern long create_shared_memory(string name, long size, out IntPtr handle);
+        static extern HRESULT create_shared_memory(string name, long size, out IntPtr handle);
 
-        public static long Create(string name, long size, out IntPtr handle)
+        public static HRESULT Create(string name, long size, out IntPtr handle)
         {
             return create_shared_memory(name, size, out handle);
+        }
+
+        [DllImport(DllName, CharSet = CharSet.Unicode)]
+        static extern HRESULT release_shared_memory(IntPtr handle);
+
+        public static HRESULT Release(IntPtr handle)
+        {
+            return release_shared_memory(handle);
+        }
+
+        public enum HRESULT : long
+        {
+            OK = 0,
+            Fail = 0x80004005L
         }
     }
 }

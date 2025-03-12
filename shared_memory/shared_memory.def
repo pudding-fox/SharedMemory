@@ -2,3 +2,4 @@ LIBRARY shared_memory
 VERSION 2.4
 EXPORTS
 create_shared_memory
+release_shared_memory

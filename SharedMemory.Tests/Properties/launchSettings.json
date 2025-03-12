@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SharedMemory.Tests": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

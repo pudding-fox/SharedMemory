@@ -25,8 +25,14 @@ namespace SharedMemory.Tests
             var name = Guid.NewGuid().ToString();
             var size = 1024;
             var handle = default(IntPtr);
-            var result = SharedMemory.Create(name, size, out handle);
-            Assert.AreEqual(0x80004001L, result);
+            {
+                var result = SharedMemory.Create(name, size, out handle);
+                Assert.AreEqual(SharedMemory.HRESULT.OK, result);
+            }
+            {
+                var result = SharedMemory.Release(handle);
+                Assert.AreEqual(SharedMemory.HRESULT.OK, result);
+            }
         }
     }
 }
