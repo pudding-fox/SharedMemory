@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net461</TargetFrameworks>
+    <AssemblyName>SharedMemory.Tests</AssemblyName>
+    <OutputPath>..\distribution\</OutputPath>
+    <Version>0.0.1</Version>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="x64\" />
+    <Folder Include="x86\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="SharedMemory" Version="0.0.1" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharedMemory\SharedMemory.csproj" />
+  </ItemGroup>
+
+</Project>

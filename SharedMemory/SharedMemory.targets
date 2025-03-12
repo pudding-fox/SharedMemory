@@ -1,0 +1,10 @@
+﻿<Project>
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\x86\shared_memory.dll" Link="x86\shared_memory.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="$(MSBuildThisFileDirectory)\x64\shared_memory.dll" Link="x64\shared_memory.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

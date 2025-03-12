@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net461</TargetFrameworks>
+    <AssemblyName>SharedMemory</AssemblyName>
+    <OutputPath>..\distribution\</OutputPath>
+    <Version>0.0.1</Version>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>true</IncludeSymbols>
+    <RepositoryUrl>https://github.com/pudding-fox/SharedMemory.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="x64\" />
+    <Folder Include="x86\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\lib\x64\shared_memory.dll" Link="x64\shared_memory.dll" PackagePath="build\x64">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\lib\x86\shared_memory.dll" Link="x86\shared_memory.dll" PackagePath="build\x86">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SharedMemory.targets" PackagePath="build">
+      <pack>true</pack>
+    </None>
+  </ItemGroup>
+
+</Project>
