@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Net.Configuration;
 using System.Runtime.InteropServices;
 
 namespace SharedMemory
@@ -67,19 +66,19 @@ namespace SharedMemory
         }
 
         [DllImport(DllName, CharSet = CharSet.Unicode)]
-        static extern HRESULT read_shared_memory(IntPtr handle, IntPtr map, ref byte[] buffer, long offset, long length);
+        static extern HRESULT read_shared_memory(IntPtr handle, IntPtr map, byte[] buffer, long offset, long length);
 
-        public static HRESULT Read(IntPtr handle, IntPtr map, ref byte[] buffer, long offset, long length)
+        public static HRESULT Read(IntPtr handle, IntPtr map, byte[] buffer, long offset, long length)
         {
-            return read_shared_memory(handle, map, ref buffer, offset, length);
+            return read_shared_memory(handle, map, buffer, offset, length);
         }
 
         [DllImport(DllName, CharSet = CharSet.Unicode)]
-        static extern HRESULT write_shared_memory(IntPtr handle, IntPtr map, ref byte[] buffer, long offset, long length);
+        static extern HRESULT write_shared_memory(IntPtr handle, IntPtr map, byte[] buffer, long offset, long length);
 
-        public static HRESULT Write(IntPtr handle, IntPtr map, ref byte[] buffer, long offset, long length)
+        public static HRESULT Write(IntPtr handle, IntPtr map, byte[] buffer, long offset, long length)
         {
-            return write_shared_memory(handle, map, ref buffer, offset, length);
+            return write_shared_memory(handle, map, buffer, offset, length);
         }
 
         [DllImport(DllName, CharSet = CharSet.Unicode)]

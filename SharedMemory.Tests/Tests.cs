@@ -81,12 +81,12 @@ namespace SharedMemory.Tests
             }
             {
                 var buffer = Encoding.UTF8.GetBytes(subject);
-                var result = SharedMemory.Write(handle, map, ref buffer, 0, buffer.Length);
+                var result = SharedMemory.Write(handle, map, buffer, 0, buffer.Length);
                 Assert.AreEqual(SharedMemory.HRESULT.OK, result);
             }
             {
-                var buffer = new byte[36];
-                var result = SharedMemory.Read(handle, map, ref buffer, 0, 36);
+                var buffer = new byte[size];
+                var result = SharedMemory.Read(handle, map, buffer, 0, size);
                 Assert.AreEqual(SharedMemory.HRESULT.OK, result);
             }
             {
